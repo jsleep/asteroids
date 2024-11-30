@@ -31,6 +31,8 @@ def main():
 
     player = Player(x=SCREEN_WIDTH/2,y=SCREEN_HEIGHT/2)
     asteroid_field = AsteroidField()
+    score = 0
+    myfont = pygame.font.SysFont("monospace", 32)
 
     while True:
         for event in pygame.event.get():
@@ -53,8 +55,12 @@ def main():
             
             for s in shots:
                 if a.collision(s):
+                    score += 1
                     a.split()
                     s.kill()
+
+        scoretext = myfont.render("Score = "+str(score), 1, WHITE_COLOR)
+        screen.blit(scoretext, (5, 10))
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000

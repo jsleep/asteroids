@@ -1,4 +1,4 @@
-# asteroid
+# asteroids
 asteroids created in pygame (following boot.dev course)
 
 ## extensions
