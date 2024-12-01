@@ -59,7 +59,7 @@ def main():
                     a.split()
                     s.kill()
 
-        scoretext = myfont.render("Score = "+str(score), 1, WHITE_COLOR)
+        scoretext = myfont.render("Score: "+str(score), 1, WHITE_COLOR)
         screen.blit(scoretext, (5, 10))
 
         pygame.display.flip()

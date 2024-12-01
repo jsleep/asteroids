@@ -1,6 +1,8 @@
 import pygame
 
-from constants import PLAYER_RADIUS, PLAYER_TURN_SPEED, PLAYER_ACCELERATE, PLAYER_SHOOT_SPEED, PLAYER_SHOOT_COOLDOWN
+from constants import PLAYER_RADIUS, PLAYER_TURN_SPEED, PLAYER_ACCELERATE, \
+    PLAYER_SHOOT_SPEED, PLAYER_SHOOT_COOLDOWN, \
+    LINE_WIDTH, WHITE_COLOR
 from circleshape import CircleShape
 from shot import Shot
 
@@ -23,9 +25,7 @@ class Player(CircleShape):
 
     def draw(self, screen):
         # sub-classes must override
-        white_color = [255,255,255]
-        line_width = 2
-        pygame.draw.polygon(screen, white_color, self.triangle(), line_width)
+        pygame.draw.polygon(screen, WHITE_COLOR, self.triangle(), LINE_WIDTH)
     
     def rotate(self, dt):
         self.rotation += PLAYER_TURN_SPEED * dt
@@ -54,11 +54,13 @@ class Player(CircleShape):
         if keys[pygame.K_d]:
             self.rotate(dt)
         
-        # forward or reverse with W or S
+        # accelerate with W or decelerate with S
         if keys[pygame.K_w]:
             self.accelerate(dt)
         if keys[pygame.K_s]:
             self.accelerate(-dt)
+        
+        # always move now that we are only directly controlling acceleration
         self.move(dt)
         
         # shoot

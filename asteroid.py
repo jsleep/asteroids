@@ -2,7 +2,8 @@ import pygame
 import random
 
 from circleshape import CircleShape
-from constants import ASTEROID_MIN_RADIUS, ASTEROID_NEW_SPEED_SCALE
+from constants import ASTEROID_MIN_RADIUS, ASTEROID_NEW_SPEED_SCALE, \
+    WHITE_COLOR, LINE_WIDTH
 
 class Asteroid(CircleShape):
     def __init__(self, x, y,radius):
@@ -10,9 +11,7 @@ class Asteroid(CircleShape):
 
     def draw(self, screen):
         # sub-classes must override
-        white_color = [255,255,255]
-        line_width = 2
-        pygame.draw.circle(screen, white_color, self.position, self.radius, line_width)
+        pygame.draw.circle(screen, WHITE_COLOR, self.position, self.radius, LINE_WIDTH)
     
     def update(self, dt):
         self.position += self.velocity * dt
@@ -20,6 +19,7 @@ class Asteroid(CircleShape):
     def split(self):
         self.kill()
 
+        # do not split small asteroids below min radius
         if self.radius <= ASTEROID_MIN_RADIUS:
             return
 
