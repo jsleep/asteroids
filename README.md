@@ -1,5 +1,5 @@
 # asteroids
-asteroids created in pygame (following boot.dev course)
+asteroids created in pygame (following boot.dev course for base game pre-extensions)
 
 ## extensions
 hoping to add the followning extensions :
@@ -9,3 +9,4 @@ hoping to add the followning extensions :
 * Add acceleration to the player movement [X]
 * Make the objects (player,asteroids?,shots?) wrap around the screen instead of disappearing [X]
 * Start + Restart screen
+* Use triangle hitbox for player?
