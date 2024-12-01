@@ -66,3 +66,5 @@ class Player(CircleShape):
         # shoot
         if keys[pygame.K_SPACE]:
             self.shoot()
+        
+        super().update(dt)

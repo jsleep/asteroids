@@ -7,5 +7,5 @@ hoping to add the followning extensions :
 * Implement multiple lives and respawning
 * Add an explosion effect for the asteroids
 * Add acceleration to the player movement [X]
-* Make the objects wrap around the screen instead of disappearing
+* Make the objects (player,asteroids?,shots?) wrap around the screen instead of disappearing [X]
 * Start + Restart screen
